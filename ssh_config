@@ -1,0 +1,2 @@
+Host dx.wangcaigu.cn
+    IdentityFile /run/secrets/id_dx
