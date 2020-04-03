@@ -22,3 +22,4 @@ Yii::setAlias('@console', XII_ROOT.'/console');
 Yii::setAlias('@frontend', XII_ROOT.'/frontend');
 Yii::setAlias('@common', XII_ROOT.'/common');
 Yii::setAlias('@var', XII_ROOT.'/var');
+Yii::setAlias('@raddy', XII_ROOT . '/vendor/benbanfa/raddy/src');

@@ -41,13 +41,48 @@ $config = [
             'enablePrettyUrl' => true,
             'showScriptName' => false,
             'rules' => [
+                'raddy/<resourceId>' => 'raddy/resource/index',
+                'raddy/<resourceId>/<id>/edit' => 'raddy/resource/edit',
+                'raddy/<resourceId>/new' => 'raddy/resource/new',
+            ],
+        ],
+        'view' => [
+            'class' => 'yii\web\View',
+            'renderers' => [
+                'twig' => [
+                    'class' => 'yii\twig\ViewRenderer',
+                    'cachePath' => '@runtime/Twig/cache',
+                    'options' => [
+                        'auto_reload' => true,
+                    ],
+                    'globals' => [
+                        'html' => ['class' => '\yii\helpers\Html'],
+                    ],
+                    'uses' => ['yii\bootstrap'],
+                ],
             ],
         ],
     ],
-    'controllerNamespace' => 'frontend\controllers',
     'modules' => [
-        'user' => UserModule::class,
+        // 'user' => UserModule::class,
+        'raddy' => [
+            'class' => \benbanfa\raddy\Module::class,
+            'mainNavWidget' => \frontend\widgets\MainNavWidget::class,
+            'subNavWidget' => \frontend\widgets\SubNavWidget::class,
+        ],
     ],
+    'container' => [
+        'singletons' => [
+            \benbanfa\raddy\ResourceRegistry::class => function () {
+                return new \benbanfa\raddy\ResourceRegistry([
+                    'resources' => [
+                        'student' => \frontend\resources\StudentResource::class,
+                    ],
+                ]);
+            },
+        ],
+    ],
+    'controllerNamespace' => 'frontend\controllers',
 ];
 
 if (YII_DEBUG) {
