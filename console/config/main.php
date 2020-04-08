@@ -13,6 +13,7 @@ $config = [
             'migrationPath' => null,
             'migrationNamespaces' => [
                 'console\migrations',
+                'benbanfa\user\migrations',
             ],
         ],
         'fixture' => [
