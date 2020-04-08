@@ -1,6 +1,6 @@
 <?php
 
-namespace backend\widgets;
+namespace frontend\widgets;
 
 use dmstr\widgets\Menu;
 use Yii;
@@ -17,7 +17,7 @@ class SubNavWidget extends Widget
                     'label' => '学生管理',
                     'url' => '#',
                     'items' => [
-                        ['label' => '学生列表', 'url' => ['/student']],
+                        ['label' => '学生列表', 'url' => ['/raddy/student']],
                     ],
                 ],
                 // more item ...

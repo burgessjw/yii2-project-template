@@ -11,4 +11,12 @@ class StudentResource extends AbstractResource
     {
         return Student::class;
     }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function canCreate(): bool
+    {
+        return true;
+    }
 }

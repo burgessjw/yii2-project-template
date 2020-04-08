@@ -4,7 +4,7 @@ $params = array_merge(
     require __DIR__.'/params.php',
     require __DIR__.'/params-local.php'
 );
-
+require __DIR__ . '/di.php';
 $config = [
     // 时区设置为 +8
     'timeZone' => 'Asia/Shanghai',

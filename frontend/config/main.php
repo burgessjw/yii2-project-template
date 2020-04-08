@@ -1,6 +1,7 @@
 <?php
 
-use Bbf\User\UserModule;
+use benbanfa\user\UserModule;
+use common\models\User;
 use yii\filters\ContentNegotiator;
 use yii\web\Response;
 
@@ -26,12 +27,13 @@ $config = [
             ],
         ],
         'user' => [
-            'identityClass' => 'common\models\User',
+            'identityClass' => User::class,
             'enableAutoLogin' => true,
             'identityCookie' => [
                 'name' => '_id',
                 'httpOnly' => true,
             ],
+            'loginUrl' => '/user/session/login',
         ],
         'session' => [
             // this is the name of the session cookie used for login on the frontend
@@ -64,7 +66,7 @@ $config = [
         ],
     ],
     'modules' => [
-        // 'user' => UserModule::class,
+        'user' => UserModule::class,
         'raddy' => [
             'class' => \benbanfa\raddy\Module::class,
             'mainNavWidget' => \frontend\widgets\MainNavWidget::class,
